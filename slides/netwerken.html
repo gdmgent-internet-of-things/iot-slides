@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Netwerken</title>
+
+    <meta
+      name="description"
+      content="A framework for easily creating beautiful presentations using HTML"
+    />
+    <meta name="author" content="Hakim El Hattab" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../dist/reset.css" />
+    <link rel="stylesheet" href="../dist/reveal.css" />
+    <link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- intro -->
+        <section>
+          <section
+            data-background="https://www.digitale-baustelle.com/wp/wp-content/uploads/2020/01/Portfolio_IoT_Bild-scaled.jpg"
+            data-background-opacity=".1"
+          >
+            <h2>Fundamenten van Netwerken</h2>
+            <p>Internet of Things 2022-23</p>
+          </section>
+        </section>
+        <!-- Netwerken -->
+        <section>
+            <section>
+                <h2>Netwerken</h2>
+            </section>
+            <section>
+                <h2>Computernetwerk</h2>
+                <ul>
+                    <li>Bestaat uit
+                        <ul>
+                            <li>Knooppunten - apparaten met een netwerkfunctie</li>
+                            <li>Verbindingen</li>
+                        </ul>
+                    </li>
+                    <li>combinatie van computersystemen, besturingssystemen, bekabelingen en satellietverbindingen</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Skribbl.io</h2>
+                <aside class="notes">
+                    WAN, LAN, PAN, GAN,  Bus , Ring , Star , Mesh , Client / Server, Peer-to-Peer, Hybrid 
+                </aside>
+            </section>
+            <section data-background="../assets/network/network-diagram.svg" data-background-opacity=".5">
+                <h2>Netwerk Topologie</h2>
+                <ul>
+                    <li>Manier waarop de knooppunten en verbindingen zijn georganiseerd</li>
+                    <li>Topologieën
+                        <ul>
+                            <li>Point-to-point</li>
+                            <li>Bus</li>
+                            <li>Ring / Dual Ring</li>
+                            <li>Star</li>
+                            <li>Tree</li>
+                            <li>Mesh</li>
+                            <li>Hybrid</li>
+                        </ul>
+                    </li>
+                </ul>                
+            </section>
+            <section data-background="../assets/network/network-types-spatial-scopes.svg" data-background-opacity="" data-background-size="contain">
+                <aside class="notes">https://networklessons.com/cisco/evolving-technologies/iot-standards-and-protocols#Nano_Network</aside>
+            </section>
+            <section>
+                <h2>Gebruik</h2>
+                <ul>
+                    <li>Client / Server</li>
+                    <li>Peer-to-peer</li>
+                </ul>
+            </section>
+            <section data-background="https://tls-bocasystems.com/foto/algemeen/tls-boca-systems-animation-card-reader-rfid.gif" data-background-opacity=".5">
+                <h2>RFID</h2>
+                <ul>
+                    <li>Radio-Frequency Identification</li>
+                    <li>Data wordt opgeslagen op een sticker (transponder)</li>
+                    <li>elektromagnetische lezer leest de gegevens m.b.v. radiogolven </li>
+                    <li>Makkelijk te verwerken</li>
+                    <li>Beveiligngscode: Electronic Product Code</li>
+                    <li>Werking via inductie (elektromagnetisch veld)</li>
+                </ul>
+                <aside class="notes">Communicatie tussen een RFID-tag en een transceiver (lezer / ondervrager)
+                    • De transceiver leest de chip uit welke verbonden is met een antenne.
+                    • Zo’n chip noemen we ook wel een transponder ofwel “het integrated circuit”
+                    • Deze chip bevat de unieke (beveiligings)code ofwel de Electronic Prouct Code (EPC)
+                    • Een goede werking door zowel de transceiver als de RFID-tag op dezelfde frequentie
+                    laten opereren
+                    • De tranceiver zend een radiosignaal via een bepaalde frequentie uit welke door de
+                    antenne in de RFID tag ontvangen wordt.
+                    • Het elektromagnetische veld zorgt ervoor dat de chip geactiveerd wordt en via zijn
+                    kleine antenne data terugstuurt naar de tranceiver
+                    De Electronic Product Code in de chip is
+meestal een 96-bits datastring
+• De eerste 8 bits van deze string vormen
+de header waarin het gebruikte
+protocol omschreven staat
+• De volgende 28-bits identificeren de-
+organisatie (id uitgegeven door GS1)
+welke de data op de tag beheerd
+• De volgende 24-bits vormen de
+“object-class en identificeert het type
+product
+• De laatste 38-bits vormen dan het
+unieke nummer voor tag
+                </aside>
+            </section>
+            <section>
+                <h2>Electronic Product Code</h2>
+                <p>96-bit datastring</p>
+                <img src="../assets/network/EPC_code.jpg" alt="">
+            </section>
+            <section>
+                <h2>Soorten RFID</h2>
+                <ul>
+                    <li>Passief
+                        <ul>
+                            <li>Geen batterij, door inductie</li>
+                            <li>Leesafstand: 1-10 cm</li>
+                        </ul>
+                    </li>
+                    <li>Semi-actief
+                        <ul>
+                            <li>Enkel zenden op antwoord van ontvangen signaal</li>
+                        </ul>
+                    </li>
+                    <li>Actief
+                        <ul>
+                            <li>Batterij: interval voor uitzenden</li>
+                            <li>Leesafstand: 10-100 m</li>
+                        </ul>
+                    </li>
+                    <li>Chiploze tags
+                        <ul>
+                            <li>Geen ID</li>
+                        </ul>
+                    </li>
+                    <aside class="notes">
+                        What is a chipless RFID tag?
+                        
+                        “Chipless RFID” is a generic term for systems that use RF energy to communicate data but don’t store a serial number in a silicon microchip in the transponder. Some chipless tags use plastic or conductive polymers instead of silicon-based microchips. Other chipless tags use materials that reflect back a portion of the radio waves beamed at them. A computer takes a snapshot of the waves beamed back and uses it like a fingerprint to identify the object with the tag. Companies are experimenting with embedding RF reflecting fibers in paper to prevent unauthorized photocopying of certain documents. There are inks that reflect back radio waves at certain frequencies, enabling farmers, for example, to tattoo a chipless RFID transponder on an animal for identification purposes.
+                    </aside>
+            </section>
+            <section>
+                <table>
+                    <tr>
+                        <td>+</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Meer info</td>
+                        <td>Uitleesafstand</td>
+                    </tr>
+                    <tr>
+                        <td>Detecteerbaar zonder zichtbaar te zijn</td>
+                        <td>Metalen omgevinden</td>
+                    </tr>
+                    <tr>
+                        <td>Gepaste plaatsing in pakket</td>
+                        <td>Fraudegevoelig</td>
+                    </tr>
+                    <tr>
+                        <td>Herprogrammeerbaar</td>
+                        <td>Gebrek standaardisatie</td>
+                    </tr>
+                </table>
+            </section>
+            <section data-background="../assets/network/nfc.gif">
+                <h2>NFC</h2>
+                <ul>
+                    <li>Near Field Communciatie</li>
+                    <li>Enkele CM</li>
+                    <li>1997: Eerste toepassing in Star Wars Speelgoed</li>
+                    <li>2011: Mastercard</li>
+                    <li>Google Pay / Apple Pay</li>
+                    <li>Actieve lezer en passieve NFC-tag</li>
+                </ul>
+            </section>
+            <section>
+                <h2>BAN</h2>
+                <ul>
+                    <li>Enkele meters</li>
+                    <li>In of rond menselijk lichaam</li>
+                    <li>Ster (met hub) of multihop</li>
+                    <li>Wireless Sensor Network - Zhong Yang</li>
+                </ul>
+                <aside class="notes">Nieuwe generatie van Wireless Sensor
+                    Network (WSN)
+                    • Ontwikkeld door Zhong Yang
+                    • Monitoren van een persoon door gebruik
+                    van biomedische sensoren,
+                    bewegingsdetectoren en draadloze
+                    communicatietoestellen
+                    • Een mobiel toestel (die in contact staat met
+                    het internet), meestal een smartphone,
+                    verwerkt de gegevens van deze toestellen
+                    en stuurt deze door naar de gewenste
+                    platformen
+                    • Actuatoren (toestellen die invloed hebben
+                    op de omgeving) kunnen kunnen
+                    geïntegreerd worden in dit netwerk</aside>
+            </section>
+            <section>
+                <h2>PAN</h2>
+                <ul>
+                    <li>Personal Area Network</li>
+                    <li>WPAN</li>
+                    <li>0 tot 10m</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Bluetooth</h2>
+                <ul>
+                    <li>Implimentatie WPAN</li>
+                    <li>Ericsson in 1994</li>
+                    <li>1 lead en 7 followers</li>
+                    <li>2.4GHz</li>
+                    <li>0 tot 10m</li>
+                </ul>
+                <aside class="notes">Zeer weinig stroom verbruik
+                    - On hold: 30 microampère
+                    - Actieve verbinding: 8-30 milliampère</aside>
+            </section>
+            <section>
+                <h2>BLE</h2>
+                <ul>
+                    <li>Bluetooth Low Energy</li>
+                    <li>Bevat EPC</li>
+                </ul>
+            </section>
+            <section>
+                <h2>LAN</h2>
+                <ul>
+                    <li>Local Area Network</li>
+                    <li>1960</li>
+                </ul>
+            </section>
+            <section>
+                <h2>IP</h2>
+                <ul>
+                    <li>Internet Protocol</li>
+                    <li>IPv4: 32 bits</li>
+                    <li>IPv6: 128 bits</li>
+                    <li>LAN: starten met 192</li>
+            </section>
+            <section>
+                <h2>WAN</h2>
+                <ul>
+                    <li>Wide Area Network</li>
+                    <li>Verschillende LANs</li>
+                    <li>Gehuurde datacommunicatielijnen</li>
+                    <li>Complexe structuur</li>
+                </ul>
+            </section>
+            <section>
+                <h2>LPWAN</h2>
+                <ul>
+                    <li>Low Power Wide Area Network</li>
+                    <li>Radio-uitgeruste apparaten over langere afstanden laten communiceren</li>
+                    <li>Geen limieten of beperkingen van batterijduur</li>
+                    <li>Smart Cities: Data Streams over grote afstanden</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Wifi</h2>
+                <ul>
+                    <li>Wireless Fidelity</li>
+                    <li>IEE 802.11 - certificaat</li>
+                    <li>2.4GHz - 5GHz</li>
+                    <li>Access points</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Cellular</h2>
+                <ul>
+                    <li>Verbinding telefoon &lt;> zendmast</li>
+                    <li>Ook Tablets, Smartwatches, IoT, Laptops</li>
+                    <li>Zendmasten</li>
+                </ul>
+            </section>
+            <section>
+                <h2>1G</h2>
+                <ul>
+                    <li>1979: Japan</li>
+                    <li>1981: Scandinavische landen</li>
+                    <li>1983: VS</li>
+                    <li>Analoog</li>
+                    <li>2.4 kbits/s</li>
+                </ul>
+            </section>
+            <section>
+                <h2>2G</h2>
+                <ul>
+                    <li>1991: Eerste experimenten</li>
+                    <li>10km bereikbaar</li>
+                    <li>GSM-standaard</li>
+                    <li>Telefoneren, SMS, MMS</li>
+                    <li>Digitaal geëncrypteerde verbinding</li>
+                    <li>2.5G GPRS (General Packet Radio Service) met een maximum snelheid van 48 kbits/s</li>
+                    <li>2.75G EDGE (Enhanced Data rates for GSM Evolution) met een maximum snelheid van 300 kbits/s</li>
+                </ul>
+            </section>
+            <section>
+                <h2>3G</h2>
+                <ul>
+                    <li>3km (hogere frequentie)</li>
+                    <li>Meer zendmasten</li>
+                    <li>2 Mbits/s</li>
+                </ul>
+            </section>
+            <section>
+                <h2>4G</h2>
+                <ul>
+                    <li>35km</li>
+                    <li>100 Mbits/s</li>
+                    <li>4G LTE met een maximum snelheid van 12.5 Mbits/s</li>
+                    <li>Snelheid in 2020 met een maximum snelheid van 55.5 Mbits/</li>
+                </ul>
+            </section>
+            <section>
+                <h2>5G</h2>
+                <ul>
+                    <li>LF (&lt; 1 GHz) 100Mb/s</li>
+                    <li>MF (&lt; 6 GHz) 1Gb/s</li>
+                    <li>HF (> 6 GHz) 10Gb/s</li>
+                </ul>
+            </section>
+            <section data-background="../assets/network/zigbee.jpg">
+                <h2>Zigbee</h2>
+                <ul>
+                    <li>Open standaard draadloze communicatie</li>
+                    <li>LPWAMN</li>
+                    <li>Lage kost en verbruik</li>
+                    <li>Coordinator, Router en End Device</li>
+                    <li>Beacon / Non-beacon</li>
+                    <li>IEEE 802.15.4</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Z-wave</h2>
+                <ul>
+                    <li>Domotica</li>
+                    <li>Mesh</li>
+                    <li>Toestellen van verschillende fabrikanten</li>
+                    <li>868 Mhz</li>
+                    <li>Max. 30m</li>
+                    <li>100 kbits/s</li>
+                </ul>
+            </section>
+            <section>
+                <h2>LoRa</h2>
+                <ul>
+                    <li> Long Range</li>
+                    <li>protocol voor lower physical layer</li>
+                    <li>15km</li>
+                    <li>Beperkt energieverbruik</li>
+                    <li>0.3 kbits/s en 27 kbits/s</li>
+                    <li>Closes Source, eigenaar Semtech</li>
+                </ul>
+            </section>
+            <section>
+                <h2>LoRaWan</h2>
+                <ul>
+                    <li>Applicatie van LPWAN</li>
+                    <li>Open Source</li>
+                    <li>LoRaWan Gateway > niet zenden én ontvangen tegelijk</li>
+                </ul>
+            </section>
+        </section>
+        <!-- Protocollen -->
+        <section>
+            <section>
+                <h2>Protocollen</h2>
+            </section>
+            <section>
+                <h2>Indeling</h2>
+                <ul>
+                    <li>Applicatielaag
+                        <ul>
+                            <li>DNS, FTP, HTTP, HTTPS, SMTP, POP, IMAP</li>
+                        </ul>
+                    </li>
+                    <li>Transportlaag
+                        <ul>
+                            <li>UDP, TCP, PORT</li>
+                        </ul>
+                    </li>
+                    <li>Netwerklaag
+                        <ul>
+                            <li>IP / IPv4, IPv6</li>
+                        </ul>
+                    </li>
+                    <li>Datalinklaag</li>
+                </ul>
+            </section>
+            <section>
+                <h2>UDP</h2>
+                <ul>
+                    <li>User Datagram Protocol</li>
+                    <li>Connectieloos protocol</li>
+                    <li>Geen ontvangstbewijs</li>
+                    <li>Geen controle op fouten</li>
+                    <li>DNS-requests & streaming audio en video</li>
+                </ul>
+            </section>
+            <section>
+                <h2>TCP</h2>
+                <ul>
+                    <li>Transmission Control Protocol</li>
+                    <li>Connectiegestuurd protocol</li>
+                    <li>Verbinding wordt opgebouwd en afgesloten</li>
+                    <li>Verzonden data wordt bevestigd</li>
+                    <li>Verzonden data wordt in de juiste volgorde ontvangen</li>
+                    <li>Trager dan UDP</li>
+                    <li>Zoals telefoongesprek</li>
+            </section>
+            <section>
+                <table>
+                    <tr>
+                        <td>TCP</td>
+                        <td>UDP</td>
+                    </tr>
+                    <tr>
+                        <td>Verbinding-georiënteerd protocol</td>
+                        <td>Bericht-georiënteerd protocol</td>
+                    </tr>
+                    <tr>
+                        <td>Tweezijdige controle</td>
+                        <td>Eenzijdige controle</td>
+                    </tr>
+                    <tr>
+                        <td>Betrouwbaar</td>
+                        <td>Snel</td>
+                    </tr>
+                    <tr>
+                        <td>Herschikking pakketten</td>
+                        <td>Geen herschikking</td>
+                    </tr>
+                    <tr>
+                        <td>20 bytes</td>
+                        <td>8 bytes</td>
+                    </tr>
+                    <tr>
+                        <td>Foutherstel</td>
+                        <td>Geen foutferstel, verwijderen foutieve pakketten</td>
+                    </tr>
+                </table>
+            </section>
+            <section>
+                <h2>HTTP</h2>
+                <ul>
+                    <li>Hypertext Transfer Protocol</li>
+                    <li>Gebruikt voor communicatie tussen webserver en browser</li>
+                    <li>Request / Response
+                        <ul>
+                            <li>Request-type, URI, headers en eventuele inhoud</li>
+                            <li>Response-code, headers en eventuele inhoud</li>
+                        </ul>
+                    </li>
+                    <li>GET, POST, PUT, DELETE</li>
+                    <li>HTTPS > SSL</li>
+            </section>
+            <section>
+                <h2>HTTP-responsecodes</h2>
+                <ul>
+                    <li>200 OK</li>
+                    <li>404 not found</li>
+                    <li>403 forbidden</li>
+                    <li>500 internal server error</li>
+                    <li>503 service unavailable</li>
+                    <li>504 gateway timeout</li>
+                </ul>
+            </section>
+            <section>
+                <h2>MQTT</h2>
+                <ul>
+                    <li>Message Queuing Telemetry Transport</li>
+                    <li>Lightweight messaging protocol</li>
+                    <li>M2M connection-oriented protocol</li>
+                    <li>verbinding tijdens gegevensoverdracht intact</li>
+                    <li>TCP-based</li>
+                    <li>MQ-broker geeft toegang</li>
+                    <li>Abonneren op kanalen</li>
+                    <li>Bericht: topic en inhoud</li>
+            </section>
+            <section>
+                <img src="UTF-8 string" alt="">
+            </section>
+            <section>
+                <h2>MQTT: Quality of servive</h2>
+                <ul>
+                    <li>0: At most once - fire and forge</li>
+                    <li>1: At least once - acknowledged delivery</li>
+                    <li>2: Exactly once - assured delivery</li>
+                </ul>
+            </section>
+            <section>
+                <h2>CoAP</h2>
+                <ul>
+                    <li>Constrained Application Protocol</li>
+                    <li>Lightweight protocol for machine-to-machine communication</li>
+                    <li>Designed voor kleine apparaten</li>
+                    <li>HTTP/1.1 over UDP
+                        <ul>
+                            <li>DTLS als oplossing</li>
+                        </ul>
+                    </li>
+                    <li>Client / Server</li>
+                    <li>Gebaseerd op REST</li>
+                    <li>Eenvoudig te vertalen naar HTTP</li>
+            </section>
+            <section>
+                <h2>AMQP</h2>
+                <ul>
+                    <li>Advanced Message Queuing Protocol</li>
+                    <li>Applicatielaag</li>
+                    <li>Message Oriented Middleware (MOM)</li>
+                    <li>Berichtbezorgingaranties</li>
+                    <li>SASL of TLS</li>
+            </section>
+            <section>
+                <h2>Andere</h2>
+                <ul>
+                    <li>DDS</li>
+                    <li>WebSockets</li>
+                    <li>WebRTC</li>
+                    <li>XMMP</li>
+                    <li>SNWP</li>
+                    <li>LwM2M</li>
+            </section>
+        </section>
+        <!-- Cloud Systems -->
+        <section>
+            <section>
+                <h2>Cloud Systems</h2>
+                <p>AaS: as a service</p>
+            </section>
+            <section>
+                <img src="../assets/network/aas-basic.png" alt="">
+            </section>
+            <section>
+                <img src="../assets/network/aas.png" alt="">
+            </section>
+            <section>
+                <h2>IaaS</h2>
+                <ul>
+                    <li>Infrastructure as a Service</li>
+                    <li>Virtualisatie</li>
+                    <li>Storage</li>
+                    <li>Networking</li>
+                    <li>Compute</li>
+            </section>
+            <section>
+                <h2>PaaS</h2>
+                <ul>
+                    <li>Platform as a Service</li>
+                    <li>Runtime</li>
+                    <li>Middleware</li>
+                    <li>Tools</li>
+                    <li>Services</li>
+            </section>
+            <section>
+                <h2>SaaS</h2>
+                <ul>
+                    <li>Software as a Service</li>
+                    <li>Webapplicaties</li>
+                    <li>Webbased tools</li>
+                    <li>Webbased services</li>
+            </section>
+            <section>
+                <h2>BaaS</h2>
+                <ul>
+                    <li>Backend as a Service</li>
+                    <li>Database</li>
+                    <li>Authenticatie</li>
+                    <li>Storage</li>
+                    <li>Analytics</li>
+            </section>
+            <section>
+                <h2>Andere</h2>
+                <ul>
+                    <li>Function as a Service</li>
+                    <li>Mobile Backend as a Service</li>
+                    <li>Internet of Things as a Service</li>
+                    <li>Analytics as a Service</li>
+                    <li>Security as a Service</li>
+                    <li>Identity as a Service</li>
+                    <li>Monitoring as a Service</li>
+                    <li>Testing as a Service</li>
+                    <li>Content as a Service</li>
+                    </ul>
+            </section>
+            <section>
+                <h2>IoT Platformen</h2>
+                <ul>
+                    <li>Device platform
+                        <ul>
+                            <li>sensoren, actuatoren, gateways en andere apparaten</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Connectivity Platform
+                        <ul>
+                            <li>connectiviteit tussen devices en cloud</li>
+                        </ul>
+                    </li>
+                    <li>
+                        IoT platform
+                        <ul>
+                            <li>Apparaatbeheer</li>
+                            <li>Dataprocessing</li>
+                            <li>Analytics</li>
+                            <li>Applicaties</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>IoT platformen</h2>
+                <ul>
+                    <li>AWS IoT</li>
+                    <li>Microsoft Azure IoT</li>
+                    <li>Google Cloud IoT</li>
+                    <li>IBM Watson IoT</li>
+                    <li>Oracle IoT</li>
+                    <li>ThingWorx</li>
+                    <li>ThingSpeak</li>
+
+                </ul>
+            </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="../dist/reveal.js"></script>
+    <script src="../plugin/notes/notes.js"></script>
+    <script src="../plugin/markdown/markdown.js"></script>
+    <script src="../plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // <li>https://revealjs.com/initialization/
+      // <li>https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>

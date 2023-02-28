@@ -3,8 +3,8 @@ let blobs = document.querySelectorAll('.blob');
 blobs.forEach( (blob) => {
   blob.xspeed = Math.random()*speed;
   blob.yspeed = Math.random()*speed;
-  blob.x = window.innerWidth/2;
-  blob.y = window.innerHeight/2;
+  blob.x = window.innerWidth/4;
+  blob.y = window.innerHeight/4;
 });
 
 function step(timestamp) {
