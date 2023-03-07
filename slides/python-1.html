@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Python Oefeningen 1</title>
+
+    <meta
+      name="description"
+      content="A framework for easily creating beautiful presentations using HTML"
+    />
+    <meta name="author" content="Jannes Lambrecht" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../dist/reset.css" />
+    <link rel="stylesheet" href="../dist/reveal.css" />
+    <link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- intro -->
+        <section>
+          <section
+            data-background="https://www.digitale-baustelle.com/wp/wp-content/uploads/2020/01/Portfolio_IoT_Bild-scaled.jpg"
+            data-background-opacity=".1"
+          >
+           <h2>Oefening 1</h2>
+           <p>Raad een willekeurig getal tussen 0 en 999</p>
+           <p></p>
+          </section>
+          <section>
+            <h2>Oefening 2</h2>
+            <p>Maak een blackjack game</p>
+            <p>Gebruik de library colered</p>
+          </section>
+          <section>
+            <h2>Oefening 3</h2>
+            <p>Time de uitvoering van 2 functies</p>
+            <p>Gebruik de library time</p>
+            <code>test_function_one()
+                Execution time: 0:00:01.000504
+        test_function_two()
+                Execution time: 0:00:02.000082</code>
+          </section>
+          <section>
+            <h2>Oefening 4</h2>
+            <p>Maak een functie die een lijst van getallen sorteert</p>
+            <p>Gebruik de library random</p>
+            <code>random_list = [random.randint(0, 100) for i in range(10)]
+                print(random_list)
+                [54, 23, 12, 98, 34, 65, 87, 43, 76, 10]
+                print(sort_list(random_list))
+                [10, 12, 23, 34, 43, 54, 65, 76, 87, 98]</code>
+          </section>
+          <section>
+            <h2>Oefening 4</h2>
+            <p>Haal random users op van https://randomuser.me/api/  </p>
+            <code>
+                Name:           Mr Duane Rogers
+        Sex:         ♂
+        UUID:           131ace20-1b27-4994-b8a5-2cf9373e857d
+        Username:       blackbutterfly953
+        Password:       bbbbbb
+        SHA256:         c2670456a568e7202f0d120e5c2e3f93611ea13f706d225aa1fc0f17ed9a6d9e
+            </code>
+          </section>
+          <section>
+            <h2>Oefening 5</h2>
+            <p>Toon de grafiek van gelijkstroom en wisselstroom via matplotlib</p>
+          </section>
+        </section>
+        
+      </div>
+    </div>
+
+    <script src="../dist/reveal.js"></script>
+    <script src="../plugin/notes/notes.js"></script>
+    <script src="../plugin/markdown/markdown.js"></script>
+    <script src="../plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // <li>https://revealjs.com/initialization/
+      // <li>https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
