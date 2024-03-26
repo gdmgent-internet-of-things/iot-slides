@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>MQTT</title>
+
+    <meta
+      name="description"
+      content="A framework for easily creating beautiful presentations using HTML"
+    />
+    <meta name="author" content="Hakim El Hattab" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../dist/reset.css" />
+    <link rel="stylesheet" href="../dist/reveal.css" />
+    <link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section></section>
+          <section data-background="../assets/mqtt/qt.gif">
+            <h2>QT</h2>
+          </section>
+          <section  data-background="../assets/mqtt/mqtt-link.gif">
+            <h2>MQTT</h2>
+          </section>
+
+          <section data-background="../assets/mqtt/Queuing-1024x681.jpg" data-background-opacity=".2">
+            <ul>
+              <li>
+                <strong>Message Queuing:</strong> Messages are queued and
+                delivered asynchronously, allowing for decoupling of
+                communication.
+              </li>
+              <li>
+                <strong>Telemetry:</strong> Particularly suited for telemetry
+                and remote monitoring applications, where data is collected from
+                sensors and transmitted efficiently.
+              </li>
+              <li>
+                <strong>Transport:</strong> Provides a lightweight transport
+                mechanism for sending and receiving messages over various
+                networks.
+              </li>
+            </ul>
+          </section>
+          <section data-background="../assets/mqtt/feather.jpg" data-background-opacity=".2">
+            <p>
+              MQTT is a lightweight messaging protocol for small sensors and
+              mobile devices, designed to be efficient, flexible, and reliable.
+            </p>
+          </section>
+        </section>
+        <section>
+          <!-- Slide 2: What MQTT Does -->
+          <section data-background="../assets/mqtt/work.gif" data-background-opacity=".2">
+            <h2>What MQTT Does</h2>
+          </section>
+          <section data-background="../assets/mqtt/subscribe.gif" data-background-opacity=".2">
+            <h2>Pub/Sub Architecture</h2>
+            <p>
+              Allows for message publication and subscription, decoupling
+              senders and receivers.
+            </p>
+          </section>
+
+          <!-- Slide 4: Quality of Service (QoS) -->
+          <section data-background="../assets/mqtt/quality.gif" data-background-opacity=".2">
+            <h2>Quality of Service (QoS)</h2>
+            <p>Supports three levels of QoS to ensure message delivery.</p>
+            <a href="https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/" target="_blank">More info</a>
+          </section>
+          <section>
+            <strong>QoS 0 (At most once):</strong> Messages are delivered at most once, with no confirmation or retransmission.
+            <img src="../assets/mqtt/qos-levels_qos0.webp" alt="QOS Level 0">
+          </section>
+          
+          <section>
+            <strong>QoS 1 (At least once):</strong> Messages are delivered at least once, ensuring no message loss but allowing duplicates.
+            <img src="../assets/mqtt/qos-levels_qos1.webp" alt="QOS Level 0">
+          </section>
+          
+          <section>
+            <strong>QoS 2 (Exactly once):</strong> Messages are delivered exactly once, guaranteeing no duplicates or message loss.
+            <img src="../assets/mqtt/qos-levels_qos2.webp" alt="QOS Level 0">
+          </section>
+          
+
+          <!-- Slide 5: Low Bandwidth and Overhead -->
+          <section data-background="../assets/mqtt/slow.gif" data-background-opacity=".2">
+            <h2>Low Bandwidth and Overhead</h2>
+            <p>
+              Optimized for low-bandwidth, high-latency, or unreliable networks.
+            </p>
+          </section>
+
+          <!-- Slide 6: Lightweight -->
+          <section data-background="../assets/mqtt/feather.jpg" data-background-opacity=".2">
+            <h2>Lightweight</h2>
+            <p>
+              Minimal code footprint, making it suitable for
+              resource-constrained devices.
+            </p>
+          </section>
+          <section data-background="../assets/mqtt/MQTT-example.jpg"></section>
+        </section>
+        <section>
+          <!-- Slide 3: Where MQTT is Used -->
+          <section>
+            <h2>Where MQTT is Used</h2>
+          </section>
+
+          <section data-background="../assets/mqtt/smarthome.gif" data-background-opacity=".2">
+            <h2>Internet of Things (IoT) Deployments</h2>
+            <p>
+              <strong>Example:</strong> Smart home systems where sensors,
+              actuators, and controllers communicate with each other to automate
+              tasks such as lighting control, temperature regulation, and
+              security monitoring.
+            </p>
+          </section>
+
+          <section data-background="../assets/mqtt/m2m.gif" data-background-opacity=".2">
+            <h2>M2M (Machine-to-Machine) Communication</h2>
+            <p>
+              <strong>Example:</strong> Manufacturing plants employing automated
+              machinery that communicate with each other to coordinate
+              production processes, monitor equipment status, and optimize
+              workflow.
+            </p>
+          </section>
+
+        <section data-background="../assets/mqtt/telemetry.gif" data-background-opacity=".2">
+            <h2>Telemetry and Remote Monitoring</h2>
+            <p>
+              <strong>Example:</strong> Environmental monitoring stations
+              deployed in remote locations, collecting data on air quality,
+              weather conditions, and soil moisture levels, and transmitting
+              this data to centralized servers for analysis.
+            </p>
+          </section>
+
+          <section data-background="../assets/mqtt/messages.gif" data-background-opacity=".2">
+            <h2>Real-time Messaging and Notifications</h2>
+            <p>
+              <strong>Example:</strong> Instant messaging platforms that deliver
+              messages to users in real-time, allowing individuals and groups to
+              communicate seamlessly over the internet.
+            </p>
+          </section>
+        </section>
+        <section>
+          <!-- Slide 4: Popular MQTT Brokers -->
+          <section data-background="../assets/mqtt/popular.gif" data-background-opacity=".2">
+            <h2>Popular MQTT Brokers</h2>
+          </section>
+              <section>
+                Mosquitto: An open-source MQTT broker developed by the Eclipse
+                Foundation. <br>
+                <img src="https://mosquitto.org/images/mosquitto-text-side-28.png" alt="">
+              </section>
+              <section>
+                EMQ X: A distributed MQTT broker for large-scale deployments
+                with high availability and performance. <br>
+                <img src="https://emqxio-static.emqx.net/images/logo.png" alt="">
+              </section>
+              <!-- <section>
+                AWS IoT Core: A managed cloud service by Amazon Web Services for
+                IoT applications, including MQTT support.
+              </section> -->
+              <section>
+                HiveMQ: A scalable and secure MQTT broker suitable for
+                enterprise use cases. <br>
+                <img src="https://www.hivemq.com/_app/immutable/assets/tw-hmq-logo.buita3kF.svg" alt="">
+              </section>
+              <section>
+                RabbitMQ: A message broker that supports multiple protocols,
+                including MQTT, for message queuing and routing. <br>
+                <img src="https://www.rabbitmq.com/img/rabbitmq-logo-with-name.svg" alt="">
+              </section>
+              <section>
+                Mosca: A Node.js-based MQTT broker that can be easily integrated
+              </section>
+        </section>
+        <section>
+          <!-- Slide 5: Pros and Cons -->
+          <section data-background="../assets/mqtt/procon.gif" data-background-opacity=".2">
+            <h2>Pros and Cons of MQTT</h2>
+            <table style="font-size: 16pt">
+              <tr>
+                <th>Pros</th>
+                <th>Cons</th>
+              </tr>
+              <tr>
+                <td>Efficient and lightweight protocol</td>
+                <td>
+                  Security concerns: Requires additional measures for
+                  authentication and encryption
+                </td>
+              </tr>
+              <tr>
+                <td>Supports reliable message delivery</td>
+                <td>Latency</td>
+              </tr>
+              <tr>
+                <td>Well-suited for IoT and M2M applications</td>
+                <td>
+                  Compatibility issues between different MQTT implementations
+                </td>
+              </tr>
+              <tr>
+                <td>Flexible QoS levels for different use cases</td>
+              </tr>
+              <tr>
+                <td>Widely adopted with extensive support and tooling</td>
+              </tr>
+            </table>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="../dist/reveal.js"></script>
+    <script src="../plugin/notes/notes.js"></script>
+    <script src="../plugin/markdown/markdown.js"></script>
+    <script src="../plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // <li>https://revealjs.com/initialization/
+      // <li>https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
