@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="utf-8" />
 
@@ -31,41 +31,52 @@
       <div class="slides">
         <!-- intro -->
         <section>
-          <section
-            data-background=""
-            data-background-opacity=".1"
-          >
+          <section data-background-image="../assets/backgrounds/python.jpg" data-background-opacity=".12">
+            <h2>Python Oefeningen 1</h2>
+            <p>Werk in een virtuele omgeving:</p>
+            <pre><code>python -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install rich requests matplotlib paho-mqtt</code></pre>
+            <p style="font-size: .7em;">Op Raspberry Pi OS is dit verplicht: <code>pip install</code> buiten een venv wordt geweigerd.</p>
+              <aside class="notes">Achtergrond: Screen-python-code-matplotlib-physics-simulation.jpg – MikeRun, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Screen-python-code-matplotlib-physics-simulation.jpg)</aside>
+          </section>
+          <section data-background-image="../assets/backgrounds/python.jpg" data-background-opacity=".12">
            <h2>Oefening 1</h2>
            <p>Raad een willekeurig getal tussen 0 en 999</p>
            <p></p>
+              <aside class="notes">Achtergrond: Screen-python-code-matplotlib-physics-simulation.jpg – MikeRun, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Screen-python-code-matplotlib-physics-simulation.jpg)</aside>
           </section>
-          <section>
+          <section data-background-image="../assets/backgrounds/python.jpg" data-background-opacity=".12">
             <h2>Oefening 2</h2>
             <p>Maak een blackjack game</p>
-            <p>Gebruik de library colered</p>
+            <p>Gebruik de library <code>rich</code> voor kleuren</p>
+              <aside class="notes">Achtergrond: Screen-python-code-matplotlib-physics-simulation.jpg – MikeRun, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Screen-python-code-matplotlib-physics-simulation.jpg)</aside>
           </section>
-          <section>
+          <section data-background-image="../assets/backgrounds/python.jpg" data-background-opacity=".12">
             <h2>Oefening 3</h2>
             <p>Time de uitvoering van 2 functies</p>
-            <p>Gebruik de library time</p>
+            <p>Gebruik <code>time.perf_counter()</code> of <code>datetime</code></p>
+            <p>Extra: schrijf het als decorator</p>
             <pre><code>test_function_one()
 Execution time: 0:00:01.000504
 test_function_two()
 Execution time: 0:00:02.000082</code></pre>
+              <aside class="notes">Achtergrond: Screen-python-code-matplotlib-physics-simulation.jpg – MikeRun, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Screen-python-code-matplotlib-physics-simulation.jpg)</aside>
           </section>
-          <section>
+          <section data-background-image="../assets/backgrounds/python.jpg" data-background-opacity=".12">
             <h2>Oefening 4</h2>
             <p>Maak een functie die een lijst van getallen sorteert</p>
-            <p>Gebruik de library random</p>
+            <p>Gebruik de library random, maar niet <code>sorted()</code> of <code>.sort()</code></p>
             <pre><code>random_list = [random.randint(0, 100) for i in range(10)]
 print(random_list)
 [54, 23, 12, 98, 34, 65, 87, 43, 76, 10]
 print(sort_list(random_list))
 [10, 12, 23, 34, 43, 54, 65, 76, 87, 98]</code></pre>
+              <aside class="notes">Achtergrond: Screen-python-code-matplotlib-physics-simulation.jpg – MikeRun, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Screen-python-code-matplotlib-physics-simulation.jpg)</aside>
           </section>
-          <section>
-            <h2>Oefening 4</h2>
-            <p>Haal random users op van https://randomuser.me/api/  </p>
+          <section data-background-image="../assets/backgrounds/python.jpg" data-background-opacity=".12">
+            <h2>Oefening 5</h2>
+            <p>Haal random users op van https://randomuser.me/api/ met de library <code>requests</code></p>
             <pre><code>
 Name:           Mr Duane Rogers
 Sex:         ♂
@@ -74,10 +85,27 @@ Username:       blackbutterfly953
 Password:       bbbbbb
 SHA256:         c2670456a568e7202f0d120e5c2e3f93611ea13f706d225aa1fc0f17ed9a6d9e
             </code></pre>
+              <aside class="notes">Achtergrond: Screen-python-code-matplotlib-physics-simulation.jpg – MikeRun, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Screen-python-code-matplotlib-physics-simulation.jpg)</aside>
           </section>
-          <section>
-            <h2>Oefening 5</h2>
+          <section data-background-image="../assets/backgrounds/python.jpg" data-background-opacity=".12">
+            <h2>Oefening 6</h2>
             <p>Toon de grafiek van gelijkstroom en wisselstroom via matplotlib</p>
+              <aside class="notes">Achtergrond: Screen-python-code-matplotlib-physics-simulation.jpg – MikeRun, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Screen-python-code-matplotlib-physics-simulation.jpg)</aside>
+          </section>
+          <section data-background-image="../assets/backgrounds/python.jpg" data-background-opacity=".12">
+            <h2>Oefening 7</h2>
+            <p>Stuur elke 5 seconden een (willekeurige) temperatuur via MQTT</p>
+            <ul style="font-size: .8em;">
+              <li>Broker: <code>test.mosquitto.org</code></li>
+              <li>Publiceer op <code>ahs/iot/&lt;jouw-naam&gt;/temperatuur</code></li>
+              <li>Abonneer op <code>ahs/iot/+/temperatuur</code> en toon de temperatuur van de hele klas</li>
+            </ul>
+            <pre><code class="python">import paho.mqtt.client as mqtt
+
+# paho-mqtt 2.x: kies de versie van de callback-API
+client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+client.connect("test.mosquitto.org", 1883)</code></pre>
+              <aside class="notes">Achtergrond: Screen-python-code-matplotlib-physics-simulation.jpg – MikeRun, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Screen-python-code-matplotlib-physics-simulation.jpg)</aside>
           </section>
         </section>
         

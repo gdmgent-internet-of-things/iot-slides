@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="utf-8" />
 
@@ -30,202 +30,225 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <section></section>
           <section data-background="../assets/mqtt/qt.gif">
             <h2>QT</h2>
           </section>
-          <section  data-background="../assets/mqtt/mqtt-link.gif">
+          <section data-background="../assets/mqtt/mqtt-link.gif">
             <h2>MQTT</h2>
           </section>
 
           <section data-background="../assets/mqtt/Queuing-1024x681.jpg" data-background-opacity=".2">
             <ul>
               <li>
-                <strong>Message Queuing:</strong> Messages are queued and
-                delivered asynchronously, allowing for decoupling of
-                communication.
+                <strong>Message Queuing:</strong> berichten worden asynchroon
+                afgeleverd, zender en ontvanger hoeven elkaar niet te kennen.
               </li>
               <li>
-                <strong>Telemetry:</strong> Particularly suited for telemetry
-                and remote monitoring applications, where data is collected from
-                sensors and transmitted efficiently.
+                <strong>Telemetry:</strong> ideaal om sensordata op afstand te
+                verzamelen en efficiënt door te sturen.
               </li>
               <li>
-                <strong>Transport:</strong> Provides a lightweight transport
-                mechanism for sending and receiving messages over various
-                networks.
+                <strong>Transport:</strong> een licht transportmechanisme om
+                berichten te versturen en te ontvangen over allerlei netwerken.
               </li>
             </ul>
           </section>
           <section data-background="../assets/mqtt/feather.jpg" data-background-opacity=".2">
             <p>
-              MQTT is a lightweight messaging protocol for small sensors and
-              mobile devices, designed to be efficient, flexible, and reliable.
+              MQTT is een licht berichtenprotocol voor kleine sensoren en
+              mobiele toestellen: efficiënt, flexibel en betrouwbaar.
             </p>
+            <ul>
+              <li>1999: IBM, voor het monitoren van olieleidingen via satelliet</li>
+              <li>Open OASIS-standaard, huidige versie: MQTT 5 (2019)</li>
+            </ul>
           </section>
         </section>
         <section>
-          <!-- Slide 2: What MQTT Does -->
           <section data-background="../assets/mqtt/work.gif" data-background-opacity=".2">
-            <h2>What MQTT Does</h2>
+            <h2>Wat doet MQTT?</h2>
           </section>
           <section data-background="../assets/mqtt/subscribe.gif" data-background-opacity=".2">
-            <h2>Pub/Sub Architecture</h2>
-            <p>
-              Allows for message publication and subscription, decoupling
-              senders and receivers.
-            </p>
+            <h2>Publish / Subscribe</h2>
+            <ul>
+              <li>Een <strong>client</strong> publiceert een bericht op een <strong>topic</strong></li>
+              <li>De <strong>broker</strong> stuurt het door naar alle clients die op dat topic geabonneerd zijn</li>
+              <li>Zenders en ontvangers kennen elkaar niet</li>
+            </ul>
+          </section>
+          <section data-background-image="../assets/backgrounds/tree.jpg" data-background-opacity=".2">
+            <h2>Topics</h2>
+            <ul>
+              <li>Hiërarchie met slashes: <code>huis/woonkamer/temperatuur</code></li>
+              <li><code>+</code> = één niveau: <code>huis/+/temperatuur</code></li>
+              <li><code>#</code> = alle onderliggende niveaus: <code>huis/#</code></li>
+              <li>Payload is vrij: tekst, getal, JSON, ...</li>
+            </ul>
+              <aside class="notes">Achtergrond: Branches of a Ficus kurzii reflecting in the water at Singapore Botanic Gardens.jpg – Basile Morin, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Branches_of_a_Ficus_kurzii_reflecting_in_the_water_at_Singapore_Botanic_Gardens.jpg)</aside>
           </section>
 
-          <!-- Slide 4: Quality of Service (QoS) -->
           <section data-background="../assets/mqtt/quality.gif" data-background-opacity=".2">
             <h2>Quality of Service (QoS)</h2>
-            <p>Supports three levels of QoS to ensure message delivery.</p>
-            <a href="https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/" target="_blank">More info</a>
+            <p>Drie niveaus om de aflevering van berichten te garanderen.</p>
+            <a href="https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/" target="_blank">Meer info</a>
           </section>
           <section>
-            <strong>QoS 0 (At most once):</strong> Messages are delivered at most once, with no confirmation or retransmission.
-            <img src="../assets/mqtt/qos-levels_qos0.webp" alt="QOS Level 0">
+            <strong>QoS 0 (At most once):</strong> hoogstens één keer, zonder bevestiging of herverzending.
+            <img src="../assets/mqtt/qos-levels_qos0.webp" alt="QoS-niveau 0">
           </section>
-          
-          <section>
-            <strong>QoS 1 (At least once):</strong> Messages are delivered at least once, ensuring no message loss but allowing duplicates.
-            <img src="../assets/mqtt/qos-levels_qos1.webp" alt="QOS Level 0">
-          </section>
-          
-          <section>
-            <strong>QoS 2 (Exactly once):</strong> Messages are delivered exactly once, guaranteeing no duplicates or message loss.
-            <img src="../assets/mqtt/qos-levels_qos2.webp" alt="QOS Level 0">
-          </section>
-          
 
-          <!-- Slide 5: Low Bandwidth and Overhead -->
+          <section>
+            <strong>QoS 1 (At least once):</strong> minstens één keer: geen verlies, maar dubbels zijn mogelijk.
+            <img src="../assets/mqtt/qos-levels_qos1.webp" alt="QoS-niveau 1">
+          </section>
+
+          <section>
+            <strong>QoS 2 (Exactly once):</strong> precies één keer: geen verlies en geen dubbels.
+            <img src="../assets/mqtt/qos-levels_qos2.webp" alt="QoS-niveau 2">
+          </section>
+
+          <section data-background-image="../assets/backgrounds/mailbox.jpg" data-background-opacity=".2">
+            <h2>Handige extra's</h2>
+            <ul>
+              <li><strong>Retained message:</strong> de broker onthoudt de laatste waarde voor nieuwe abonnees</li>
+              <li><strong>Last Will:</strong> bericht dat de broker verstuurt als een toestel onverwacht wegvalt</li>
+              <li><strong>Keep alive:</strong> controleert of de verbinding nog leeft</li>
+              <li><strong>MQTT 5:</strong> foutcodes, vervaltijd van berichten, shared subscriptions</li>
+            </ul>
+              <aside class="notes">Achtergrond: Letterboxes Ocotillo Wells 2013 Crop.jpg – Tuxyso, CC BY-SA 3.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Letterboxes_Ocotillo_Wells_2013_Crop.jpg)</aside>
+          </section>
+
           <section data-background="../assets/mqtt/slow.gif" data-background-opacity=".2">
-            <h2>Low Bandwidth and Overhead</h2>
+            <h2>Weinig bandbreedte en overhead</h2>
             <p>
-              Optimized for low-bandwidth, high-latency, or unreliable networks.
+              Geoptimaliseerd voor trage, onbetrouwbare netwerken met veel vertraging.
             </p>
           </section>
 
-          <!-- Slide 6: Lightweight -->
           <section data-background="../assets/mqtt/feather.jpg" data-background-opacity=".2">
-            <h2>Lightweight</h2>
+            <h2>Lichtgewicht</h2>
             <p>
-              Minimal code footprint, making it suitable for
-              resource-constrained devices.
+              Weinig code nodig, dus geschikt voor toestellen met beperkte
+              rekenkracht en geheugen.
             </p>
           </section>
           <section data-background="../assets/mqtt/MQTT-example.jpg"></section>
         </section>
         <section>
-          <!-- Slide 3: Where MQTT is Used -->
-          <section>
-            <h2>Where MQTT is Used</h2>
+          <section data-background-image="../assets/backgrounds/smarthome.jpg" data-background-opacity=".2">
+            <h2>Waar wordt MQTT gebruikt?</h2>
+              <aside class="notes">Achtergrond: Sonos PLAY 1 wireless speaker.jpg – Robert Wetzlmayr, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Sonos_PLAY_1_wireless_speaker.jpg)</aside>
           </section>
 
           <section data-background="../assets/mqtt/smarthome.gif" data-background-opacity=".2">
-            <h2>Internet of Things (IoT) Deployments</h2>
+            <h2>Internet of Things</h2>
             <p>
-              <strong>Example:</strong> Smart home systems where sensors,
-              actuators, and controllers communicate with each other to automate
-              tasks such as lighting control, temperature regulation, and
-              security monitoring.
+              <strong>Voorbeeld:</strong> een smart home (bv. Home Assistant) waar
+              sensoren, actuatoren en controllers samenwerken voor verlichting,
+              verwarming en beveiliging.
             </p>
           </section>
 
           <section data-background="../assets/mqtt/m2m.gif" data-background-opacity=".2">
-            <h2>M2M (Machine-to-Machine) Communication</h2>
+            <h2>M2M (Machine-to-Machine)</h2>
             <p>
-              <strong>Example:</strong> Manufacturing plants employing automated
-              machinery that communicate with each other to coordinate
-              production processes, monitor equipment status, and optimize
-              workflow.
+              <strong>Voorbeeld:</strong> machines in een fabriek die de productie
+              op elkaar afstemmen, hun status doorgeven en de werking optimaliseren.
+              Vaak met de industriële uitbreiding Sparkplug B.
             </p>
           </section>
 
-        <section data-background="../assets/mqtt/telemetry.gif" data-background-opacity=".2">
-            <h2>Telemetry and Remote Monitoring</h2>
+          <section data-background="../assets/mqtt/telemetry.gif" data-background-opacity=".2">
+            <h2>Telemetrie en monitoring op afstand</h2>
             <p>
-              <strong>Example:</strong> Environmental monitoring stations
-              deployed in remote locations, collecting data on air quality,
-              weather conditions, and soil moisture levels, and transmitting
-              this data to centralized servers for analysis.
+              <strong>Voorbeeld:</strong> meetstations op afgelegen plaatsen die
+              luchtkwaliteit, weer en bodemvocht meten en naar een centrale
+              server sturen.
             </p>
           </section>
 
           <section data-background="../assets/mqtt/messages.gif" data-background-opacity=".2">
-            <h2>Real-time Messaging and Notifications</h2>
+            <h2>Realtime berichten en meldingen</h2>
             <p>
-              <strong>Example:</strong> Instant messaging platforms that deliver
-              messages to users in real-time, allowing individuals and groups to
-              communicate seamlessly over the internet.
+              <strong>Voorbeeld:</strong> chatapps en pushmeldingen die berichten
+              meteen afleveren, ook op een zwakke mobiele verbinding.
             </p>
           </section>
         </section>
         <section>
-          <!-- Slide 4: Popular MQTT Brokers -->
           <section data-background="../assets/mqtt/popular.gif" data-background-opacity=".2">
-            <h2>Popular MQTT Brokers</h2>
+            <h2>Populaire MQTT-brokers</h2>
           </section>
-              <section>
-                Mosquitto: An open-source MQTT broker developed by the Eclipse
-                Foundation. <br>
-                <img src="https://mosquitto.org/images/mosquitto-text-side-28.png" alt="">
-              </section>
-              <section>
-                EMQ X: A distributed MQTT broker for large-scale deployments
-                with high availability and performance. <br>
-                <img src="https://emqxio-static.emqx.net/images/logo.png" alt="">
-              </section>
-              <!-- <section>
-                AWS IoT Core: A managed cloud service by Amazon Web Services for
-                IoT applications, including MQTT support.
-              </section> -->
-              <section>
-                HiveMQ: A scalable and secure MQTT broker suitable for
-                enterprise use cases. <br>
-                <img src="https://www.hivemq.com/_app/immutable/assets/tw-hmq-logo.buita3kF.svg" alt="">
-              </section>
-              <section>
-                RabbitMQ: A message broker that supports multiple protocols,
-                including MQTT, for message queuing and routing. <br>
-                <img src="https://www.rabbitmq.com/img/rabbitmq-logo-with-name.svg" alt="">
-              </section>
-              <section>
-                Mosca: A Node.js-based MQTT broker that can be easily integrated
-              </section>
+          <section>
+            Mosquitto: open-source broker van de Eclipse Foundation, ideaal op een Raspberry Pi. <br>
+            <img src="../assets/mqtt/mosquitto-text-side-28-4a8b30.png" alt="Mosquitto">
+          </section>
+          <section>
+            EMQX: gedistribueerde broker voor grote installaties met hoge beschikbaarheid. <br>
+            <img src="../assets/mqtt/logo-217afd.webp" alt="EMQX">
+          </section>
+          <section data-background-image="../assets/backgrounds/serverrack.jpg" data-background-opacity=".2">
+            HiveMQ: schaalbare en veilige broker voor bedrijven, met een gratis cloudversie.
+              <aside class="notes">Achtergrond: Door of Rack Server Cabinet Fujitsu Primecenter.jpg – Trique303, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Door_of_Rack_Server_Cabinet_Fujitsu_Primecenter.jpg)</aside>
+          </section>
+          <section>
+            RabbitMQ: message broker die meerdere protocollen ondersteunt, waaronder MQTT. <br>
+            <img src="../assets/mqtt/rabbitmq-logo-with-name-6b07fb.svg" alt="RabbitMQ">
+          </section>
+          <section data-background-image="../assets/backgrounds/serverrack.jpg" data-background-opacity=".2">
+            <p>Aedes: MQTT-broker in Node.js (opvolger van Mosca).</p>
+            <p>AWS IoT Core / Azure IoT Hub: MQTT als clouddienst.</p>
+              <aside class="notes">Achtergrond: Door of Rack Server Cabinet Fujitsu Primecenter.jpg – Trique303, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Door_of_Rack_Server_Cabinet_Fujitsu_Primecenter.jpg)</aside>
+          </section>
         </section>
         <section>
-          <!-- Slide 5: Pros and Cons -->
+          <section data-background-image="../assets/backgrounds/padlock.jpg" data-background-opacity=".2">
+            <h2>Beveiliging</h2>
+            <ul>
+              <li>Standaard is MQTT niet versleuteld (poort 1883)</li>
+              <li>Gebruik TLS (poort 8883)</li>
+              <li>Gebruikersnaam en wachtwoord of certificaten per toestel</li>
+              <li>ACL's: welke client mag op welk topic publiceren of lezen</li>
+              <li>Publieke testbrokers: iedereen kan meelezen!</li>
+            </ul>
+              <aside class="notes">Achtergrond: Love padlocks on the Butchers&#x27; Bridge (Ljubljana).jpg – Petar Milošević, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Love_padlocks_on_the_Butchers%27_Bridge_(Ljubljana).jpg)</aside>
+          </section>
+          <section data-background-image="../assets/backgrounds/code.jpg" data-background-opacity=".2">
+            <h2>Zelf proberen</h2>
+            <ul>
+              <li>Testbroker: <code>test.mosquitto.org</code></li>
+              <li><a href="https://mqtt-explorer.com/" target="_blank">MQTT Explorer</a>: alle topics bekijken</li>
+              <li>Python: <code>pip install paho-mqtt</code></li>
+              <li>Node-RED of Home Assistant om flows te bouwen</li>
+            </ul>
+              <aside class="notes">Achtergrond: Coder screen shot.webp – Wikideas1, CC0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Coder_screen_shot.webp)</aside>
+          </section>
           <section data-background="../assets/mqtt/procon.gif" data-background-opacity=".2">
-            <h2>Pros and Cons of MQTT</h2>
+            <h2>Voor- en nadelen van MQTT</h2>
             <table style="font-size: 16pt">
               <tr>
-                <th>Pros</th>
-                <th>Cons</th>
+                <th>Voordelen</th>
+                <th>Nadelen</th>
               </tr>
               <tr>
-                <td>Efficient and lightweight protocol</td>
-                <td>
-                  Security concerns: Requires additional measures for
-                  authentication and encryption
-                </td>
+                <td>Efficiënt en lichtgewicht</td>
+                <td>Beveiliging (TLS, authenticatie) moet je zelf instellen</td>
               </tr>
               <tr>
-                <td>Supports reliable message delivery</td>
-                <td>Latency</td>
+                <td>Betrouwbare aflevering dankzij QoS</td>
+                <td>De broker is een centraal punt: valt hij uit, dan valt alles stil</td>
               </tr>
               <tr>
-                <td>Well-suited for IoT and M2M applications</td>
-                <td>
-                  Compatibility issues between different MQTT implementations
-                </td>
+                <td>Gemaakt voor IoT en M2M</td>
+                <td>Geen vast formaat voor de payload: afspraken nodig</td>
               </tr>
               <tr>
-                <td>Flexible QoS levels for different use cases</td>
+                <td>Flexibele QoS-niveaus</td>
+                <td>Vereist TCP, voor de kleinste toestellen is CoAP of MQTT-SN lichter</td>
               </tr>
               <tr>
-                <td>Widely adopted with extensive support and tooling</td>
+                <td>Veel gebruikt, met veel tools en libraries</td>
+                <td></td>
               </tr>
             </table>
           </section>

@@ -1,28 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-
-    <title>Overzicht slides</title>
-    <link rel="stylesheet" href="dist/menu.css" />
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Internet of Things</title>
+    <script>document.documentElement.classList.add('js');</script>
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <div class="blob">
-      <a href="./slides/internet.html">Internet</a>
-    </div>
-    <div class="blob">
-      <a href="./slides/iot.html">IoT</a>
-    </div>
-    <div class="blob">
-        <a href="./slides/netwerken.html">Netwerken</a>
+    <header class="banner">
+      <div class="banner-text">
+        <h1>Internet of Things</h1>
       </div>
-      <div class="blob">
-        <a href="./slides/elektriciteit.html">Elektriciteit</a>
-      </div>
-    <script src="./dist/menu.js"></script>
+      <span class="count" id="count"></span>
+    </header>
+
+    <main class="stage" id="stage">
+      <canvas aria-hidden="true"></canvas>
+      <svg role="navigation" aria-label="Presentaties"></svg>
+
+      <!-- Fallback list, shown when JavaScript or the network animation is unavailable.
+           Every file listed here is also checked by the script, so new slides show up
+           even before they are pushed to GitHub. -->
+      <ul class="fallback" id="slides">
+        <li><a href="slides/introduction.html">Introduction to AI</a></li>
+        <li><a href="slides/internet.html">Internet</a></li>
+        <li><a href="slides/iot.html">Fundamenten van IoT</a></li>
+        <li><a href="slides/netwerken.html">Netwerken</a></li>
+        <li><a href="slides/elektriciteit.html">Elektriciteit</a></li>
+        <li><a href="slides/mqtt.html">MQTT</a></li>
+        <li><a href="slides/python-1.html">Python Oefeningen 1</a></li>
+        <li><a href="slides/workshop-1.html">Workshop 1</a></li>
+        <li><a href="slides/pechakucha.html">Damn, it's a sexy pitch!</a></li>
+      </ul>
+    </main>
+
+    <script type="module">
+      // Static hosts can't list a folder, so ask the GitHub API which files are in /slides
+      // and add the files from the fallback list above (covers slides that aren't pushed yet).
+      const REPO = 'gdmgent-internet-of-things/iot-slides';
+      const BRANCH = 'main';
+      const CACHE_KEY = 'slides-list';
+      const CACHE_MS = 10 * 60 * 1000; // the API allows 60 requests/hour per IP
+
+      const stage = document.getElementById('stage');
+      const count = document.getElementById('count');
+      const fallback = document.getElementById('slides');
+
+      function setCount(n) {
+        count.textContent = `${n} presentatie${n === 1 ? '' : 's'} online`;
+      }
+
+      async function getRemoteFiles() {
+        try {
+          const cached = JSON.parse(localStorage.getItem(CACHE_KEY));
+          if (cached && Date.now() - cached.time < CACHE_MS) return cached.files;
+        } catch (e) {}
+
+        try {
+          const res = await fetch(`https://api.github.com/repos/${REPO}/contents/slides?ref=${BRANCH}`);
+          if (!res.ok) throw new Error(`GitHub API: ${res.status}`);
+          const files = (await res.json())
+            .filter((item) => item.type === 'file' && item.name.endsWith('.html'))
+            .map((item) => item.name);
+          try {
+            localStorage.setItem(CACHE_KEY, JSON.stringify({ time: Date.now(), files }));
+          } catch (e) {}
+          return files;
+        } catch (e) {
+          console.warn('GitHub API niet bereikbaar, enkel de vaste lijst wordt gebruikt.', e);
+          return [];
+        }
+      }
+
+      // Read the <title> from the deck itself; returns null when the file isn't on this site.
+      async function getSlideInfo(file) {
+        const url = `slides/${file}`;
+        try {
+          const res = await fetch(url);
+          if (!res.ok) return null;
+          const doc = new DOMParser().parseFromString(await res.text(), 'text/html');
+          const title = doc.querySelector('title')?.textContent.trim() || file.replace(/\.html$/, '');
+          return { file, url, title };
+        } catch (e) {
+          return null;
+        }
+      }
+
+      const known = [...fallback.querySelectorAll('a')].map((a) => a.getAttribute('href').replace('slides/', ''));
+      setCount(known.length);
+
+      try {
+        const files = [...new Set([...(await getRemoteFiles()), ...known])];
+        const slides = (await Promise.all(files.map(getSlideInfo))).filter(Boolean);
+        slides.sort((a, b) => a.title.localeCompare(b.title, 'nl'));
+        setCount(slides.length);
+
+        const { startNetwork } = await import('./assets/network.js');
+        startNetwork(stage, slides);
+      } catch (e) {
+        console.warn('Netwerk kon niet starten, de gewone lijst wordt getoond.', e);
+        document.documentElement.classList.add('network-failed');
+      }
+    </script>
   </body>
 </html>

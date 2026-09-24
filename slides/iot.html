@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="utf-8" />
 
-    <title>Fundementen van IoT</title>
+    <title>Fundamenten van IoT</title>
 
     <meta name="description" content="A framework for easily creating beautiful presentations using HTML" />
     <meta name="author" content="Hakim El Hattab" />
@@ -20,6 +20,27 @@
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="../plugin/highlight/monokai.css" />
+    <style>
+        .reveal figure { margin: 0; }
+        .reveal figcaption { margin-top: .3em; font-size: .6em; }
+        .reveal figcaption small { display: block; font-size: .55em; opacity: .6; }
+        /* Photos of real sensors that slide over the explanation */
+        .reveal .sensor-overlay {
+            /* Fixed inside reveal's scaled .slides box = exactly the whole slide (960x700),
+               and it doesn't change the section height reveal uses to center the text */
+            position: fixed;
+            inset: 0;
+            box-sizing: border-box;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background: #191919; /* same as the black theme, hides the text below */
+        }
+        .reveal .sensor-overlay figure { flex: 1 1 0; max-width: 520px; }
+        .reveal .sensor-overlay img { max-width: 100%; max-height: 440px; margin: 0; border-radius: 8px; object-fit: contain; }
+    </style>
 </head>
 
 <body>
@@ -27,18 +48,18 @@
         <div class="slides">
             <section>
                 <section
-                    data-background="https://www.digitale-baustelle.com/wp/wp-content/uploads/2020/01/Portfolio_IoT_Bild-scaled.jpg"
+                    data-background="../assets/iot/Portfolio_IoT_Bild-scaled-3a8903.jpg"
                     data-background-opacity='.1'>
                     <h2>Fundamenten van IoT</h2>
-                    <p>Internet of Things 2025-26</p>
+                    <p>Internet of Things 2026-27</p>
                 </section>
                 <section
-                    data-background="https://www.digitale-baustelle.com/wp/wp-content/uploads/2020/01/Portfolio_IoT_Bild-scaled.jpg"
+                    data-background="../assets/iot/Portfolio_IoT_Bild-scaled-3a8903.jpg"
                     data-background-opacity='.1'>
                     <h2>IoT, wdyt?</h2>
                 </section>
                 <section
-                    data-background="https://www.digitale-baustelle.com/wp/wp-content/uploads/2020/01/Portfolio_IoT_Bild-scaled.jpg"
+                    data-background="../assets/iot/Portfolio_IoT_Bild-scaled-3a8903.jpg"
                     data-background-opacity='.1'>
                     <h2>Wat is IoT?</h2>
                     <div class="r-stack">
@@ -50,23 +71,30 @@
                             <li>Combinatie van data uit deze systemen creëren extra toegevoegde waarden</li>
                             <li>4de industriële revolutie</li>
                         </ul>
-                        <img class="fragment"
-                            src="https://bridgera.com/wp-content/uploads/2017/06/IoT_Stack_pg11_intro.jpg">
+                        <div class="fragment" style="background-color: black;">
+                        <ol >
+                            <li>Devices: sensoren &amp; actuatoren</li>
+                            <li>Connectiviteit: wifi, Bluetooth, Thread, LoRaWAN, 5G ...</li>
+                            <li>Edge / gateway: lokaal verwerken en filteren</li>
+                            <li>Cloud / platform: opslag, analyse, AI</li>
+                            <li>Applicatie: dashboard, app, automatisatie</li>
+                        </ol>
+                        </div>
                     </div>
                 </section>
                 <section>
                     <h2>Voorbeelden</h2>
                     <div class="r-stack">
                         <img class="fragment"
-                            src="https://image.shutterstock.com/shutterstock/photos/363299582/display_1500/stock-photo-man-having-a-heart-attack-363299582.jpg">
+                            src="../assets/iot/stock-photo-man-having-a-heart-attack-363299582-53f710.jpg">
                         <img class="fragment"
-                            src="https://image.shutterstock.com/image-photo/old-gas-cylinder-on-wooden-600w-1855506604.jpg">
+                            src="../assets/iot/old-gas-cylinder-on-wooden-600w-1855506604-075d13.webp">
                         <img class="fragment"
-                            src="https://image.shutterstock.com/image-photo/opened-empty-fridge-standing-on-450w-5846629.jpg"
+                            src="../assets/iot/opened-empty-fridge-standing-on-450w-5846629-7e59fd.webp"
                             alt="">
                         <img class="fragment"
-                            src="https://thumb7.shutterstock.com/image-photo/stock-photo-residential-fire-fully-involved-450w-89597407.jpg">
-                        <img class="fragment" src="https://i.ytimg.com/vi/mGef6Ni3m9s/maxresdefault.jpg">
+                            src="../assets/iot/stock-photo-residential-fire-fully-involved-450w-89597407-859d5c.webp">
+                        <img class="fragment" src="../assets/iot/maxresdefault-059a3e.jpg">
                         <!-- <ul class="fragment">
                         <li>Industriële gasflessen die het magazijn laten weten wanneer ze vervangen moeten
                             worden</li>
@@ -79,30 +107,76 @@
                             <li>Een slimme huisbrandmelder kan nu ook ongunstige weerswaarschuwingen afgeven om
                             mensen te waarschuwen in gevaarlijke gevallen zoals o.a. snel bewegende tornado’s of
                             bosbranden</li>
-                        <img  src="https://bridgera.com/wp-content/uploads/2017/06/IoT_Stack_pg11_intro.jpg">-->
+                        -->
                     </div>
+                </section>
+                <section>
+                    <h2>Voorbeelden in 2026</h2>
+                    <div class="r-stack">
+                        <figure class="fragment fade-in-then-out">
+                            <img src="../assets/iot/smart-home-hue.jpg" alt="Philips Hue-bridge met twee slimme lampen" style="max-height: 460px;">
+                            <figcaption>Smart home <small>Foto: Sho Hashimoto, CC BY 2.0</small></figcaption>
+                        </figure>
+                        <figure class="fragment fade-in-then-out">
+                            <img src="../assets/iot/digitale-meter.jpg" alt="Digitale elektriciteitsmeter" style="max-height: 460px;">
+                            <figcaption>Digitale meter <small>Foto: RobbieIanMorrison, CC BY 4.0</small></figcaption>
+                        </figure>
+                        <figure class="fragment fade-in-then-out">
+                            <img src="../assets/iot/predictive-maintenance.png" alt="Draadloze trillingssensor op een elektromotor" style="max-height: 460px;">
+                            <figcaption>Predictive maintenance <small>Foto: Cedric Leturcq, CC BY-SA 4.0</small></figcaption>
+                        </figure>
+                        <figure class="fragment fade-in-then-out">
+                            <img src="../assets/iot/digital-twin-bim.png" alt="3D-model van een kantoorgebouw op een tablet" style="max-height: 460px;">
+                            <figcaption>Digital twin <small>Beeld: Adam Korbuly, CC BY-SA 4.0</small></figcaption>
+                        </figure>
+                        <figure class="fragment fade-in-then-out">
+                            <img src="../assets/iot/connected-car-tesla.jpg" alt="Scherm van een Tesla Model 3" style="max-height: 460px;">
+                            <figcaption>Connected car <small>Foto: SirAsdof, CC BY-SA 4.0</small></figcaption>
+                        </figure>
+                        <figure class="fragment">
+                            <img src="../assets/iot/smart-farming-sensor-station.jpg" alt="Meetstation met zonnepaneel en antenne op een akker" style="max-height: 460px;">
+                            <figcaption>Smart farming <small>Foto: P e z i, CC BY-SA 3.0 AT</small></figcaption>
+                        </figure>
+                    </div>
+                    <aside class="notes">
+                        <ul>
+                            <li>Smart home met Matter: lampen, sloten en thermostaten van verschillende merken werken samen, ook zonder cloud.</li>
+                            <li>Digitale meter: meet verbruik en injectie van zonnepanelen per kwartier, basis voor het capaciteitstarief.</li>
+                            <li>Predictive maintenance: een trillingssensor op een motor ziet slijtage aankomen, zodat je herstelt vóór hij stilvalt.</li>
+                            <li>Digital twin: een virtuele kopie van een gebouw, fabriek of stad, gevoed met live sensordata.</li>
+                            <li>Connected car: over-the-air updates, live verkeersinfo, pechverhelping en diagnose op afstand.</li>
+                            <li>Smart farming: een meetstation op zonne-energie meet bodemvocht en stuurt de data draadloos door, zodat de boer gericht kan irrigeren.</li>
+                        </ul>
+                        <p>Beeldbronnen (Wikimedia Commons):
+                            File:Philips_Hue_hub_and_2_bulbs.jpg,
+                            File:Logarex_smart_household_electricity_meter_build_year_2023.jpg,
+                            File:Wi-care_sensor_on_reciprocating_motor.png,
+                            File:Operational_BIM_3D_view_in_a_mobile_device.png,
+                            File:Tesla_Model_3_Screen_Dec_2020.jpg,
+                            File:Cosmic_Ray_Sensor_for_soil_moisture_measurements-DSC_6642w.jpg</p>
+                    </aside>
                 </section>
             </section>
             <section>
                 <section
-                    data-background="https://www.innominds.com/hs-fs/hubfs/Smart_Home_Innominds.jpg?width=1280&name=Smart_Home_Innominds.jpg"
+                    data-background="../assets/iot/Smart_Home_Innominds-601e1b.webp"
                     data-background-opacity=".1">
                     <h2>Smart Consumers</h2>
                 </section>
                 <section>
                     <div class="r-stack">
                         <h2 class="fragment">Wearables</h2>
-                        <img class="fragment" src="../assets/internet/The-AMAZTIM-M2-Smartwatch-ready-for-action.webp"
+                        <img class="fragment" src="../assets/introduction/The-AMAZTIM-M2-Smartwatch-ready-for-action.webp"
                             alt="">
                         <img class="fragment"
                             src="../assets/internet/ray-ban-meta-smart-glasses-video-feed-promises-continuous-re_9p99.3840.webp"
                             alt="">
                         <h2 class="fragment">Smartphone</h2>
                         <img class="fragment"
-                            src="https://techmodeon.com/wp-content/uploads/2021/05/techmodeon-iphone-foldable.jpg"
+                            src="../assets/iot/techmodeon-iphone-foldable-1d0396.jpg"
                             alt="">
                         <h2 class="fragment">Voice assistance</h2>
-                        <img class="fragment" src="https://geeksfl.com/wp-content/uploads/voice-assistants-battle.jpg"
+                        <img class="fragment" src="../assets/iot/voice-assistants-battle-414481.jpg"
                             alt="">
                     </div>
                 </section>
@@ -121,22 +195,17 @@
                             <li>Hogere winstgevendheid</li>
                             <li>Beter onderbouwde strategische besluitvorming</li>
                         </ul>
-                        <img class="fragment"
-                            src="https://www.astecsolutions.com/wp-content/uploads/2019/05/AdobeStock_230670206.jpeg"
-                            alt="">
+                        
                         <img class="fragment" src="../assets/iot/Facebook-Smart-Industry-Demcon-1-1774878233.jpg"
                             alt="">
 
                         <img class="fragment" src="../assets/iot/smart-industry.jpg " alt="">
                     </div>
                 </section>
-                <section
-                    data-background="https://media-exp1.licdn.com/dms/image/C5112AQHmb2DM7ksBNw/article-cover_image-shrink_600_2000/0/1569740178265?e=2147483647&v=beta&t=K8kZvKFNzFnd7bO_2V1205ffKb8H12-P-lIlwcGcVNo"
-                    data-background-size="contain"></section>
-                <section data-background="https://i.redd.it/3h7tnlweduz31.jpg" data-background-opacity=".5">
+                <section data-background="../assets/iot/3h7tnlweduz31-1833e2.jpg" data-background-opacity=".5">
                     <h2>Industry 1.0</h2>
                     <ul>
-                        <li>Periode van 1784 tot 1870</li>
+                        <li>Periode van ca. 1760 tot 1840</li>
                         <li>Mechanisatie</li>
                         <li>Stoommachines</li>
                         <li>Weefmachines</li>
@@ -147,22 +216,22 @@
                     </ul>
                 </section>
                 <section
-                    data-background="https://theoldmotor.com/wp-content/uploads/2016/02/1932-Ford-Chasiss-Assembly-Line.jpg"
+                    data-background="../assets/iot/1932-Ford-Chasiss-Assembly-Line-5ab90b.jpg"
                     data-background-opacity=".5">
                     <h2>Industry 2.0</h2>
                     <ul>
-                        <li>Periode van 1870 tot 1969</li>
+                        <li>Periode van ca. 1870 tot 1914</li>
                         <li>Massaproductie</li>
                         <li>Productielijn</li>
-                        <li>Elekrische energie (en olie)</li>
+                        <li>Elektrische energie (en olie)</li>
                     </ul>
                 </section>
                 <section
-                    data-background="../assets//iot/Glen_Beck_and_Betty_Snyder_program_the_ENIAC_in_building_328_at_the_Ballistic_Research_Laboratory.jpg.webp"
+                    data-background="../assets/iot/Glen_Beck_and_Betty_Snyder_program_the_ENIAC_in_building_328_at_the_Ballistic_Research_Laboratory.jpg.webp"
                     data-background-opacity=".5">
                     <h2>Industry 3.0</h2>
                     <ul>
-                        <li>Periode van 1969 tot nu</li>
+                        <li>Periode van ca. 1969 tot 2010</li>
                         <li>Automatisatie</li>
                         <li>Computers</li>
                         <li>Elektronica</li>
@@ -170,19 +239,19 @@
                     </ul>
                 </section>
                 <section
-                    data-background="https://www.supplychaintoday.com/wp-content/uploads/2019/12/Humanoid-robot.jpg"
+                    data-background="../assets/iot/Humanoid-robot-070f98.jpg"
                     data-background-opacity=".5">
                     <h2>Industry 4.0</h2>
                     <ul>
-                        <li>Periode van nu of (veel) later</li>
-                        <li>Massa consumptie</li>
+                        <li>Term "Industrie 4.0" sinds 2011 (Duitsland)</li>
+                        <li>Massa-maatwerk (mass customization)</li>
                         <li>Geavanceerde automatisatie /
                             Robotica</li>
                         <li>Internet of Things</li>
                         <li>Artificiële Intelligentie</li>
                         <li>Big Data & Analytics</li>
-                        <li>Cloud computing / services</li>
-                        <li>Web 3.0</li>
+                        <li>Cloud &amp; edge computing</li>
+                        <li>Digital twins</li>
                     </ul>
                     <div class="r-stack" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
                         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/I44_zbEwz_w"
@@ -195,19 +264,21 @@
 
                 </section>
                 <section
-                    data-background="https://imageio.forbes.com/specials-images/imageserve/62826f47fed0782749e6f1dc/Industry-5-0/960x0.jpg?format=jpg&width=960"
+                    data-background="../assets/iot/960x0-652020.webp"
                     data-background-opacity=".5">
                     <h2>Industry 5.0</h2>
                     <ul>
-                        <li>Maatschappelijke insteek</li>
-                        <li>Voorbij massa consumptie</li>
-                        <li>Rekening houdend met de limitiaties</li>
+                        <li>Visie van de Europese Commissie (2021)</li>
+                        <li>De mens centraal: technologie ondersteunt, vervangt niet</li>
+                        <li>Duurzaam: rekening houdend met de grenzen van de planeet</li>
+                        <li>Veerkrachtig: bestand tegen crisissen (pandemie, chiptekort)</li>
                     </ul>
                 </section>
             </section>
             <section>
-                <section>
+                <section data-background-image="../assets/backgrounds/pcb.jpg" data-background-opacity=".2">
                     <h2>Begrippen</h2>
+                    <aside class="notes">Achtergrond: Macro circuit board.JPG – Ingo Dierking, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Macro_circuit_board.JPG)</aside>
                 </section>
                 <section data-background="../assets/iot/SENSOR37450.jpg" data-background-opacity=".2">
                     <h2>Sensor</h2>
@@ -219,34 +290,34 @@
                         <li>Waarde wordt omgezet in stroom of spanning: 0/4 - 20 mA of 0/4 - 10 V</li>
                     </ul>
                 </section>
-                <section>
+                <section data-background-image="../assets/backgrounds/weatherstation.jpg" data-background-opacity=".2">
                     <p>
                         Luchtvochtigheid, Temperatuur, Druk, Debiet, Zuurgraad, Niveau, Nabijheid, Gewicht of Kracht,
                         Redox, Troebelheid, Elektrische geleidbaarheid, Magnetisch veld, Hall-sensor, Reed-contact,
                         Elektrisch verbruik Kilowattuurmeter, Richting - bijvoorbeeld een elektronisch kompas, Helling -
                         bijvoorbeeld een elektronische waterpas, Chemische samenstelling, Hoogte - bijvoorbeeld
                         radarmeting of vlotter, Afstand met een afstandssensor, Verplaatsing met verplaatsingssensoren,
-                        Beweging - met bewegingssensoren, Beeld - met een beeldsensor</li>
+                        Beweging - met bewegingssensoren, Beeld - met een beeldsensor,
                         Licht (intensiteit of ruimtelijke verdeling) </p>
-
+                    <aside class="notes">Achtergrond: IMG 0430-aws-rothera 1200x900.jpg – William M. Connolley, CC BY-SA 3.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:IMG_0430-aws-rothera_1200x900.jpg)</aside>
                 </section>
-                <section>
+                <section data-background-image="../assets/backgrounds/anemometer.jpg" data-background-opacity=".2">
                     <h2>Virtueel</h2>
                     <p>
                         Een virtuele sensor meet een grootheid door middels een
                         aanvullende verwerking een waarde af te leiden uit andere
-                        grootheden. Dit is dus geen transductie meer, waar de
-                        andere voorbeelden dat wel zijn.</p>
+                        grootheden. Geen 1-op-1 vertaling van een zintuig natuurlijk.</p>
                     <ul>
                         <li>Windsnelheid afleiden uit luchtdrukverschil</li>
                         <li>Verbruik afleiden uit spanning en stroom</li>
                     </ul>
+                    <aside class="notes">Achtergrond: CTAF Unicom radio and anemometer at Alexander Salamon Airport.jpg – FatalFit, CC0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:CTAF_Unicom_radio_and_anemometer_at_Alexander_Salamon_Airport.jpg)</aside>
                 </section>
                 <!-- <section>
                     <h2>Think like a sensor</h2>
                     <p>The workshop</p>
                 </section> -->
-                <section data-background="https://media.autodoc.de/360_photos/14741149/h-preview.jpg"
+                <section data-transition="fade" data-background-image="../assets/backgrounds/parking.jpg" data-background-opacity=".2"
                     data-background-opacity=".5">
 
                     <h2>Parkeersensor</h2>
@@ -256,8 +327,19 @@
                         <li>Echolocatie</li>
                         <li>Verschil in tijd</li>
                     </ul>
+                    <div class="sensor-overlay fragment">
+                        <figure>
+                            <img src="../assets/iot/sensor-parking-car.jpg" alt="Parkeersensor in een bumper">
+                            <figcaption>Parkeersensor in een bumper <small>Foto: Basotxerri, CC BY-SA 4.0</small></figcaption>
+                        </figure>
+                        <figure>
+                            <img src="../assets/iot/sensor-hc-sr04.jpg" alt="Ultrasone module HC-SR04">
+                            <figcaption>Ultrasone module HC-SR04 <small>Foto: Suyash Dwivedi, CC BY-SA 4.0</small></figcaption>
+                        </figure>
+                    </div>
+                    <aside class="notes">Achtergrond: Parking lot, Gross-Gerau (P1090665).jpg – Matti Blume, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Parking_lot,_Gross-Gerau_(P1090665).jpg)</aside>
                 </section>
-                <section data-background="https://images.blokker.nl/2180000/hires/2186281-97f9dbe2.jpg"
+                <section data-transition="fade" data-background-image="../assets/backgrounds/motionlight.jpg" data-background-opacity=".2"
                     data-background-opacity=".5">
 
                     <h2>Bewegingssensor</h2>
@@ -270,8 +352,15 @@
                         <li>Trillingen</li>
                         <li>Magnetisch</li>
                     </ul>
+                    <div class="sensor-overlay fragment">
+                        <figure>
+                            <img src="../assets/iot/sensor-pir.jpg" alt="PIR-bewegingssensor (infrarood)">
+                            <figcaption>PIR-bewegingssensor (infrarood) <small>Foto: Lethalattraction, CC BY-SA 4.0</small></figcaption>
+                        </figure>
+                    </div>
+                    <aside class="notes">Achtergrond: NYC - A security light - 9727.jpg – Jorge Royan, CC BY-SA 3.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:NYC_-_A_security_light_-_9727.jpg)</aside>
                 </section>
-                <section data-background="https://static.techtake.nl/2522/500/BenamingenMechanischeEindschakelaar.jpg"
+                <section data-transition="fade" data-background-image="../assets/backgrounds/typewriter.jpg" data-background-opacity=".2"
                     data-background-opacity=".5">
 
                     <h2>Mechanische bewegingssensor</h2>
@@ -284,24 +373,43 @@
                         </li>
                         <li>Optisch</li>
                     </ul>
+                    <div class="sensor-overlay fragment">
+                        <figure>
+                            <img src="../assets/iot/sensor-limit-switch.jpg" alt="Eindschakelaar">
+                            <figcaption>Eindschakelaar <small>Foto: Pradeep717, CC BY-SA 4.0</small></figcaption>
+                        </figure>
+                        <figure>
+                            <img src="../assets/iot/sensor-microswitch.jpg" alt="Microswitch met rolhefboom">
+                            <figcaption>Microswitch met rolhefboom <small>Foto: SparkFun Electronics from Boulder, USA, CC BY 2.0</small></figcaption>
+                        </figure>
+                    </div>
+                    <aside class="notes">Achtergrond: Numerical Keys on a Vintage Typewriter.jpg – Mathieu Landretti, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Numerical_Keys_on_a_Vintage_Typewriter.jpg)</aside>
                 </section>
-                <section data-background="http://www.stabilizer-pro.com/u_file/1811/products/02/6314070e87.jpg"
+                <section data-transition="fade" data-background="../assets/iot/6314070e87-03c13e.jpg"
                     data-background-opacity=".5">
 
                     <h2>Optische bewegingssensor</h2>
                     <ul>
                         <li>Basisvorm: frames vergelijken</li>
                     </ul>
+                    <div class="sensor-overlay fragment">
+                        <figure>
+                            <img src="../assets/iot/sensor-optical-mouse.jpg" alt="Optische sensor van een muis">
+                            <figcaption>Optische sensor van een muis <small>Foto: Cjp24, CC BY-SA 3.0</small></figcaption>
+                        </figure>
+                    </div>
                 </section>
-                <section
-                    data-background="https://www.martoparts.nl/Files/2/63000/63257/ProductPhotos/MaxContent/155957943.jpeg"
+                <section data-transition="fade" data-background-image="../assets/backgrounds/thermometer.jpg" data-background-opacity=".2"
                     data-background-opacity=".5">
 
                     <h2>Temperatuursensor</h2>
                     <ul>
                         <li>Temperatuur naar elektrisch signaal</li>
                         <li>Weerstandsthermometer
-                            <ul>Temperatuur ++ > Weerstand --</ul>
+                            <ul>
+                                <li>PTC (bv. Pt100): temperatuur ↑ → weerstand ↑</li>
+                                <li>NTC: temperatuur ↑ → weerstand ↓</li>
+                            </ul>
                         </li>
                         <li>Thermokoppel
                             <ul>
@@ -310,41 +418,64 @@
                             </ul>
                         </li>
                     </ul>
+                    <div class="sensor-overlay fragment">
+                        <figure>
+                            <img src="../assets/iot/sensor-pt100.jpg" alt="Pt100-voeler">
+                            <figcaption>Pt100-voeler <small>Foto: Suyash Dwivedi, CC BY-SA 4.0</small></figcaption>
+                        </figure>
+                        <figure>
+                            <img src="../assets/iot/sensor-thermocouple.jpg" alt="Thermokoppel type K">
+                            <figcaption>Thermokoppel type K <small>Foto: Harke, publiek domein</small></figcaption>
+                        </figure>
+                    </div>
+                    <aside class="notes">Achtergrond: Medical mercury thermometer with velvet-lined cardboard box - focus stack (2020-05-25).jpg – Franz van Duns, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Medical_mercury_thermometer_with_velvet-lined_cardboard_box_-_focus_stack_(2020-05-25).jpg)</aside>
                 </section>
-                <section
-                    data-background="https://www.techniekwebshop.nl/media/catalog/product/cache/1/image/1000x/9df78eab33525d08d6e5fb8d27136e95/b/s/bsp00h5_1.jpg"
+                <section data-transition="fade" data-background-image="../assets/backgrounds/gauge.jpg" data-background-opacity=".2"
                     data-background-opacity=".5">
 
                     <h2>Druksensor</h2>
                     <ul>
-                        <li>piëzometers,manometers, drukopnemers ...</li>
-                        <li>drukmeting van assen en vloeistoffen</li>
-                        <li>Kracht om een fluïdum te stoppen met uitzetten à kracht per oppervlakte-eenheid</li>
-                        <li>
+                        <li>Piëzometers, manometers, drukopnemers ...</li>
+                        <li>Drukmeting van gassen en vloeistoffen</li>
+                        <li>Druk = kracht per oppervlakte-eenheid (Pa)</li>
+                        <li>Soorten
                             <ul>
-                                <li>Manodrukmeter ~ gerelateerd aan atmosferische druk</li>
-                                <li>Vacuüm druksensor: verschil tussen drukken</li>
-                                <li>Sealed druksensor ~ relatieve druk t.o.v. vaste waarde</li>
+                                <li>Absoluut: t.o.v. vacuüm</li>
+                                <li>Manometrisch (gauge): t.o.v. atmosferische druk</li>
+                                <li>Differentieel: verschil tussen twee drukken</li>
+                                <li>Sealed: t.o.v. een vaste referentiedruk</li>
                             </ul>
                         </li>
                     </ul>
+                    <div class="sensor-overlay fragment">
+                        <figure>
+                            <img src="../assets/iot/sensor-bmp280.jpg" alt="BMP280 luchtdruksensor">
+                            <figcaption>BMP280 luchtdruksensor <small>Foto: AGermanBeck, CC BY-SA 4.0</small></figcaption>
+                        </figure>
+                        <figure>
+                            <img src="../assets/iot/sensor-manometer.jpg" alt="Manometer">
+                            <figcaption>Manometer <small>Foto: In Transit, CC BY-SA 4.0</small></figcaption>
+                        </figure>
+                    </div>
+                    <aside class="notes">Achtergrond: Pressure Gauge.jpg – In Transit, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Pressure_Gauge.jpg)</aside>
                 </section>
             </section>
             <section>
-                <section>
+                <section data-background-image="../assets/backgrounds/robotarm.jpg" data-background-opacity=".2">
                     <h2>Actuatoren</h2>
                     <p>Handelen</p>
+                    <aside class="notes">Achtergrond: UR16e robot arm.png – Auledas, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:UR16e_robot_arm.png)</aside>
                 </section>
-                <section>
+                <section data-background-image="../assets/backgrounds/thermostat.jpg" data-background-opacity=".2">
                     <h2>Autonoom systeem</h2>
                     <ul>
                         <li>sensor</li>
                         <li>Regelaar</li>
                         <li>Actuator</li>
                     </ul>
+                    <aside class="notes">Achtergrond: Bc105 thermostat side view.png – Ayla Yang, CC0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Bc105_thermostat_side_view.png)</aside>
                 </section>
-                <section
-                    data-background="http://www.dmaeuropa.com/Portals/24/MMP_Images/INMOCO226_AKM_DC_Servo_Motor_Low_Voltage_pic3_PR4438_47084.jpg"
+                <section data-background-image="../assets/backgrounds/pneumatic.jpg" data-background-opacity=".2"
                     data-background-opacity=".5">
 
                     <h2>Soorten</h2>
@@ -365,14 +496,16 @@
                         </li>
 
                     </ul>
+                    <aside class="notes">Achtergrond: Pneumatic cylinder.jpg – Grummelbacke, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Pneumatic_cylinder.jpg)</aside>
                 </section>
             </section>
             <section>
-                <section>
+                <section data-background-image="../assets/backgrounds/factoryrobots.jpg" data-background-opacity=".2">
                     <h2>M2M</h2>
                     <p>Machine to Machine</p>
+                    <aside class="notes">Achtergrond: Roboterbasiertes Rührreibschweißen.jpg – TheGrenzebachGroup, CC BY-SA 3.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Roboterbasiertes_R%C3%BChrreibschwei%C3%9Fen.jpg)</aside>
                 </section>
-                <section>
+                <section data-background-image="../assets/backgrounds/controlroom.jpg" data-background-opacity=".2">
                     Autonome handelingen vs Controle
                     <ul>
                         <li>
@@ -384,22 +517,64 @@
                             <p>Artificial Intelligence</p>
                         </li>
                     </ul>
-
+                    <aside class="notes">Achtergrond: US Navy 110328-N-OJ170-009 Hideji Kawasaki operates the supervisory control and data acquisition (SCADA) system to balance an electrical load insid.jpg – U.S. Navy photo by Joe Schmitt, Public domain, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:US_Navy_110328-N-OJ170-009_Hideji_Kawasaki_operates_the_supervisory_control_and_data_acquisition_(SCADA)_system_to_balance_an_electrical_load_insid.jpg)</aside>
                 </section>
-                <section>
+                <section data-background-image="../assets/backgrounds/pcb.jpg" data-background-opacity=".2">
                     <h2>Kenmerken</h2>
                     <ul>
                         <li>Laag stroomverbruik</li>
                         <li>Tijdtolerantie</li>
                         <li>Tijdcontrole</li>
                     </ul>
+                    <aside class="notes">Achtergrond: Macro circuit board.JPG – Ingo Dierking, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Macro_circuit_board.JPG)</aside>
                 </section>
-                <section>
+                <section data-background-image="../assets/backgrounds/fiber.jpg" data-background-opacity=".2">
                     <h2>M2M + Internet = IoT</h2>
                     <ul>
                         <li>Monitoring</li>
                         <li>Menselijke interventies en AI</li>
                     </ul>
+                    <aside class="notes">Achtergrond: Propagation of light through the core of an optical fiber. Macro visualization..JPG – AZToshkov, CC BY-SA 3.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Propagation_of_light_through_the_core_of_an_optical_fiber._Macro_visualization..JPG)</aside>
+                </section>
+            </section>
+            <section>
+                <section data-background-image="../assets/backgrounds/padlock.jpg" data-background-opacity=".2">
+                    <h2>IoT &amp; veiligheid</h2>
+                    <aside class="notes">Achtergrond: Love padlocks on the Butchers&#x27; Bridge (Ljubljana).jpg – Petar Milošević, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Love_padlocks_on_the_Butchers%27_Bridge_(Ljubljana).jpg)</aside>
+                </section>
+                <section data-background-image="../assets/backgrounds/cctv.jpg" data-background-opacity=".2">
+                    <h2>Waarom?</h2>
+                    <ul>
+                        <li>2016: Mirai-botnet: honderdduizenden camera's en routers met standaardwachtwoorden leggen websites plat</li>
+                        <li>Goedkope toestellen krijgen vaak geen updates</li>
+                        <li>Elk toestel is een mogelijke toegangspoort tot je netwerk</li>
+                    </ul>
+                    <aside class="notes">Achtergrond: CCTV cameras in Mumbai.jpg – Punit Rajpal, CC0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:CCTV_cameras_in_Mumbai.jpg)</aside>
+                </section>
+                <section data-background-image="../assets/backgrounds/padlock.jpg" data-background-opacity=".2">
+                    <h2>Basisregels</h2>
+                    <ul>
+                        <li>Geen standaardwachtwoorden</li>
+                        <li>Versleutelde verbindingen (TLS)</li>
+                        <li>Beveiligingsupdates, ook over-the-air</li>
+                        <li>Zo weinig mogelijk data verzamelen</li>
+                        <li>IoT-toestellen in een apart (gast)netwerk</li>
+                    </ul>
+                    <aside class="notes">Achtergrond: Love padlocks on the Butchers&#x27; Bridge (Ljubljana).jpg – Petar Milošević, CC BY-SA 4.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Love_padlocks_on_the_Butchers%27_Bridge_(Ljubljana).jpg)</aside>
+                </section>
+                <section data-background-image="../assets/backgrounds/europarl.jpg" data-background-opacity=".2">
+                    <h2>Europese regels</h2>
+                    <ul style="font-size: .85em;">
+                        <li><strong>Radio Equipment Directive</strong>: sinds augustus 2025 cyberbeveiligingseisen voor draadloze toestellen die met het internet verbinden</li>
+                        <li><strong>Data Act</strong> (sinds september 2025): gebruikers hebben recht op de data van hun eigen toestellen</li>
+                        <li><strong>Cyber Resilience Act</strong>: beveiliging en updates verplicht voor alle producten met software
+                            <ul>
+                                <li>Meldplicht voor misbruikte kwetsbaarheden: september 2026</li>
+                                <li>Volledig van toepassing: december 2027</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <aside class="notes">Achtergrond: European Parliament Strasbourg Hemicycle - Diliff.jpg – Diliff, CC BY-SA 3.0, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:European_Parliament_Strasbourg_Hemicycle_-_Diliff.jpg)</aside>
                 </section>
             </section>
         </div>
